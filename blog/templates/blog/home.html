@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>app django</title>
+        {% if title %}
+            <title>{{ title }} - Django </title>
+        {% else %}
+            <title>appdjango</title>
+        {% endif %}
     </head>
     <body>
-        {%for post in posts%}
-            <h1>{{post.title}}</h1>
-        {%endfor%}
+        {% for post in posts %}
+            <h1>{{ post.title }}</h1>
+            <p>By {{ post.author }} at {{ post.date_posted }}</p>
+            <p> {{ post.content }}</p>
+        {% endfor %} 
     </body>
 </html>

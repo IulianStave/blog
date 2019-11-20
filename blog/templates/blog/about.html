@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html>
-    <head>
+<head>
+    {% if title %}
+        <title>{{ title }} - Django </title>
+    {% else %}
         <title>appdjango</title>
-    </head>
-    <body>
-        <h1> Blog about! This is from a template</h1>
-    </body>
+    {% endif %}
+</head>
+<body>
+    <h1> Blog about! This is from a template</h1>
+</body>
 </html>
