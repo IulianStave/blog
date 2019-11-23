@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    {% if title %}
-        <title>{{ title }} - Django </title>
-    {% else %}
-        <title>appdjango</title>
-    {% endif %}
-</head>
-<body>
-    <h1> Blog about! This is from a template</h1>
-</body>
-</html>
+{% extends 'blog/base.html' %}
+    {% block content %}
+    <h1> Blog about! </h1><br/> <h2>This is from a template</h2>
+    {% endblock %}
