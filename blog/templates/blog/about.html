@@ -1,14 +1,14 @@
 {% extends 'blog/base.html' %}
-    {% block content %}
-    
-    <article class="media content-section">
-            <div class="media-body">
-              <div class="article-metadata">
-                Hi there!
-                <small class="text-muted">{{ post.date_posted }}</small>
-              </div>
-              <h2><a class="article-title" href=""> This is a generic about page</a></h2>
-              <p class="article-content"> A blog for learning Django framework</p>
-            </div>
-
-    {% endblock %}
+{% block content %}
+  <article class="media content-section">
+    <div class="media-body">
+      <div class="article-metadata">
+        <small class="text-muted">Django models and design patterns</small>
+      </div>
+      <h2><a class="article-title" href=""> About</a></h2>
+      <p > 
+        A blog for learning Django framework 
+      </p>
+    </div>
+</article>
+{% endblock %}
