@@ -4,5 +4,6 @@
 db.sqlite3
 __pycache__
 #/users/__pycache__/
-profile_pics
+media
+
 
