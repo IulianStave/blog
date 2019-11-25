@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Post
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import (
                                     ListView,
                                     DetailView,
@@ -29,11 +30,12 @@ class PostListView(ListView):
 class PostDetailView(DetailView):
     model = Post
 
-class PostCreateView(CreateView):
+class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
     fields = ['title','content']
+
     #override the form valid method form_valid()
-    def form_valid(self,form):
+    def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
  
