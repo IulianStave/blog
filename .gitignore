@@ -1,10 +1,15 @@
-#/blog/__pycache__
-#/blog/migrations/__pycache__/
-#/django_project/__pycache__/
 db.sqlite3
 __pycache__
-#/users/__pycache__/
 /media/profile_pics/
+*.pyc
+
+#/blog/__pycache__
+
+#/blog/migrations/__pycache__/
+#/django_project/__pycache__/
+
+#/users/__pycache__/
+
 
 
 
