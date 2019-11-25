@@ -1,12 +1,15 @@
 from django.shortcuts import render
 from .models import Post
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import (
+                                        LoginRequiredMixin,
+                                        UserPassesTestMixin,
+)
 from django.views.generic import (
                                     ListView,
                                     DetailView,
                                     CreateView,
                                     DeleteView,
-                                    UpdateView
+                                    UpdateView,
 )
 
 # function based views
@@ -38,10 +41,25 @@ class PostCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
- 
+
+class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = Post
+    fields = ['title','content']
+
+    #override the form valid method form_valid()
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+    def test_func(self):
+        post = self.get_object()
+        if post.author == self.request.user:
+            return True
+        return False
+
 
 class PostDeleteView(DeleteView):
     model = Post
+
 
 
 def about(request):
